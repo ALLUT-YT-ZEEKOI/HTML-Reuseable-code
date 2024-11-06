@@ -1,0 +1,153 @@
+<div  class="App_details_z1">
+    <div class="container">
+    <p style="font-weight: 600;">New Launches</p>
+
+    <div class="p_cnt_z1">
+    <div class="slider">
+        <div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div>
+        <div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div><div class="app_product_card_z1">
+            <img src="/assets\img\TomatoDesi-pdp.jpg_1723791939200 (2).jpg" alt="">
+            <p class="toto">Tomato Desi</p>
+            <p class="app-g_v1">500 g</p>
+            <p class="app_price_z1">₹5 - ₹10</p>
+        </div>
+       
+    </div>
+</div>
+
+
+
+    </div>
+</div>
+
+<style>
+.App_details_z1{
+        background:#eaf4d4;
+        width: 100%;
+        padding:15px
+    }
+    .app_product_card_z1{
+    width: 181px;
+    background-color: white;
+    padding: 8px;
+    /* height: 300px; */
+    border-radius: 10px;
+    box-shadow: azure;
+    border: 1px solid #ffeeee;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    border: 0.5px solid rgb(232, 232, 232);
+    box-shadow: rgba(0, 0, 0, 0.04) 2px 2px 8px;
+    border-radius: 8px;
+    margin:8px;
+}
+
+.toto{font-size: 13px;line-height: 0;}
+.app-g_v1{font-size: 12px;font-weight: 500;line-height: 0;padding-top: 6px;}
+.app_price_z1{
+    font-size: 15px;
+    font-weight: 600;
+
+}
+/* Sliding animation */
+.p_cnt_z1 {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.app_product_card_z1 {
+    min-width: 181px;
+    margin-right: 8px;
+    /* Additional styling */
+}
+
+.p_cnt_z1::-webkit-scrollbar {
+    display: none;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.querySelector(".slider");
+    const cards = document.querySelectorAll(".app_product_card_z1");
+    let currentIndex = 0;
+    const slideInterval = 3000; // 3 seconds
+
+    // Clone the first set of cards to create a seamless infinite loop
+    const cardClone = slider.innerHTML;
+    slider.innerHTML += cardClone;
+
+    function slide() {
+        // Move to the next card
+        currentIndex++;
+        
+        // Calculate the offset based on the current index
+        const offset = -currentIndex * (cards[0].offsetWidth + 200); // Adjust for card width and margin
+        slider.style.transform = `translateX(${offset}px)`;
+
+        // If the slider has moved past the original cards, reset it back to the first set
+        if (currentIndex >= cards.length) {
+            setTimeout(() => {
+                slider.style.transition = 'none'; // Disable transition during reset
+                slider.style.transform = `translateX(0)`;
+                currentIndex = 0;
+                
+                // Re-enable the transition for the next slide
+                setTimeout(() => {
+                    slider.style.transition = 'transform 1s ease-in-out';
+                }, 50);
+            }, 1000); // Wait for the last slide transition to complete
+        }
+    }
+
+    setInterval(slide, slideInterval);
+});
+
+</script>
+
