@@ -1,160 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carousel with Slide Animation</title>
+    <title>Continuous Left Sliding Carousel</title>
     <style>
-        /* Carousel container styling */
-        
-        .first_courcel_z1 {
-            width: 100%;
-            background: #e7f9ff;
-            border-radius: 15px;
-            margin-top: 21px;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-        /* Carousel track styling */
-        
-        .carousel-content {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 200%;
-        }
-        /* Each carousel item */
-        
-        .carousel-item {
-            flex: 0 0 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-        }
-        /* Image and text styles */
-        
-        .first_courcel_z1 img {
-            width: 42px;
-            margin-right: 10px;
-        }
-        
-        .get_in_z1 {
-            color: #212121;
-            font-size: 15px;
-            line-height: 2;
-            font-weight: 500;
-        }
-        
-        .at_yout_text_1z {
-            color: #212121;
-            font-size: 12px;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        /* Subscribe button styling */
-        
-        .subscribe_btn_z1 {
-            background: #d2efff;
-            border-radius: 40px;
-            border: 1px #047abc solid;
-            padding: 8px 16px;
-            margin-top: 10px;
-        }
-        
-        .sub_btn_text_z1 {
-            color: #047abc;
-            font-size: 13px;
-            font-weight: 500;
-            text-align: center;
-        }
-        /* Dot indicators */
-        
-        .carousel-indicators {
-            text-align: center;
-            margin-top: 10px;
-        }
-        
-        .dot {
-            height: 10px;
-            width: 10px;
-            margin: 0 5px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-            cursor: pointer;
-        }
-        
-        .dot.active {
-            background-color: #047abc;
-        }
-    </style>
-</head>
+      /* Carousel container styling */
+      .first_courcel_z1 {
+        width: 100%;
+        background: #e7f9ff;
+        border-radius: 15px;
+        margin-top: 21px;
+        padding: 20px;
+        overflow: hidden;
+        position: relative;
+      }
 
-<body>
+      /* Carousel track styling */
+      .carousel-content {
+        display: flex;
+        transition: transform 0.5s linear;
+        will-change: transform;
+      }
+
+      /* Each carousel item */
+      .carousel-item {
+        flex: 0 0 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+      }
+
+      /* Image and text styles */
+      .first_courcel_z1 img {
+        width: 42px;
+        margin-right: 10px;
+      }
+
+      .get_in_z1 {
+        color: #212121;
+        font-size: 15px;
+        line-height: 2;
+        font-weight: 500;
+      }
+
+      .at_yout_text_1z {
+        color: #212121;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      /* Dot indicators */
+      .carousel-indicators {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background-color: #047abc;
+      }
+    </style>
+  </head>
+
+  <body>
     <div class="first_courcel_z1">
-        <div class="carousel-content" id="carouselContent">
-            <!-- Slide 1 -->
-            <div class="carousel-item">
-                <div class="d-flex">
-                    <img src="assets/Group 1721 1.png" alt="" />
-                    <div style="line-height: 1.2; padding-left: 3px">
-                        <span class="get_in_z1">Get farm fresh milk delivered</span><br />
-                        <span class="at_yout_text_1z">at your Door Step</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-                <div class="d-flex">
-                    <img src="assets/Group 1721 1.png" alt="" />
-                    <div style="line-height: 1.2; padding-left: 3px">
-                        <span class="get_in_z1">Enjoy organic produce delivered</span
+      <div class="carousel-content" id="carouselContent">
+        <!-- Cloned Slide (last for seamless loop) -->
+        <div class="carousel-item">
+          <div class="d-flex">
+            <img src="assets/Group 1721 1.png" alt="" />
+            <div style="line-height: 1.2; padding-left: 3px">
+              <span class="get_in_z1">Enjoy organic produce delivered</span
               ><br />
               <span class="at_yout_text_1z">right to your home</span>
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
-
-        <!-- Dot indicators -->
-        <div class="carousel-indicators">
-            <span class="dot active" onclick="setCurrentSlide(0)"></span>
-            <span class="dot" onclick="setCurrentSlide(1)"></span>
+        <!-- Slide 1 -->
+        <div class="carousel-item">
+          <div class="d-flex">
+            <img src="assets/Group 1721 1.png" alt="" />
+            <div style="line-height: 1.2; padding-left: 3px">
+              <span class="get_in_z1">Get farm fresh milk delivered</span><br />
+              <span class="at_yout_text_1z">at your Door Step</span>
+            </div>
+          </div>
         </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="d-flex">
+            <img src="assets/Group 1721 1.png" alt="" />
+            <div style="line-height: 1.2; padding-left: 3px">
+              <span class="get_in_z1">Enjoy organic produce delivered</span
+              ><br />
+              <span class="at_yout_text_1z">right to your home</span>
+            </div>
+          </div>
+        </div>
+        <!-- Cloned Slide (first for seamless loop) -->
+        <div class="carousel-item">
+          <div class="d-flex">
+            <img src="assets/Group 1721 1.png" alt="" />
+            <div style="line-height: 1.2; padding-left: 3px">
+              <span class="get_in_z1">Get farm fresh milk delivered</span><br />
+              <span class="at_yout_text_1z">at your Door Step</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Dot indicators -->
+      <div class="carousel-indicators">
+        <span class="dot active" onclick="setCurrentSlide(0)"></span>
+        <span class="dot" onclick="setCurrentSlide(1)"></span>
+      </div>
     </div>
 
     <script>
-        let currentSlideIndex = 0;
-        const carouselContent = document.getElementById("carouselContent");
-        const dots = document.querySelectorAll(".dot");
+      const carouselContent = document.getElementById("carouselContent");
+      const dots = document.querySelectorAll(".dot");
+      const slideWidth = 100; // Slide width in percentage
+      let currentSlideIndex = 1; // Start from the first real slide
+      let isTransitioning = false;
 
-        function updateCarousel() {
-            const offset = -currentSlideIndex * 100; // Offset for sliding effect
-            carouselContent.style.transform = `translateX(${offset}%)`;
+      // Update carousel position and dots
+      function updateCarousel() {
+        const offset = -currentSlideIndex * slideWidth;
+        carouselContent.style.transform = `translateX(${offset}%)`;
 
-            // Update active dot
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentSlideIndex);
-            });
-        }
+        // Update dots (use modulo to stay within bounds)
+        dots.forEach((dot, index) => {
+          dot.classList.toggle(
+            "active",
+            index === (currentSlideIndex - 1) % dots.length
+          );
+        });
+      }
 
-        function nextSlide() {
-            currentSlideIndex = (currentSlideIndex + 1) % dots.length;
-            updateCarousel();
-        }
+      // Move to the next slide
+      function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentSlideIndex++;
+        carouselContent.style.transition = "transform 0.5s linear";
+        updateCarousel();
 
-        function setCurrentSlide(index) {
-            currentSlideIndex = index;
-            updateCarousel();
-        }
+        // Seamless transition
+        carouselContent.addEventListener(
+          "transitionend",
+          () => {
+            if (currentSlideIndex === carouselContent.children.length - 1) {
+              carouselContent.style.transition = "none";
+              currentSlideIndex = 1; // Reset to the first real slide
+              updateCarousel();
+            }
+            isTransitioning = false;
+          },
+          { once: true }
+        );
+      }
 
-        // Auto-slide every 3 seconds
-        setInterval(nextSlide, 3000);
+      // Start auto-slide
+      setInterval(nextSlide, 3000);
+
+      // Update the current slide when clicking dots
+      function setCurrentSlide(index) {
+        currentSlideIndex = index + 1; // Adjust for the cloned slide
+        updateCarousel();
+      }
+
+      // Initialize carousel
+      updateCarousel();
     </script>
-</body>
-
+  </body>
 </html>
-
